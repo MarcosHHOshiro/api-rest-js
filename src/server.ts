@@ -2,7 +2,9 @@ import express from "express"
 
 const app = express()
 
-app.get("/", (request, response) => {
+app.get("/product/:id/:user", (request, response) => {
+    const { id, user } = request.params
+
     response.send("Hello world")
 })
 
