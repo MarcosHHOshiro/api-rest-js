@@ -11,7 +11,11 @@ class ProductsController {
     create(request: Request, response: Response) {
         const { name, price } = request.body
 
-        throw new AppError("Erro de Exemplo", 400)
+        if (!name || !price) {
+            throw new AppError("Nome e preço do produto é obrigatório!", 400)
+        }
+
+        // throw new AppError("Erro de Exemplo", 400)
 
         response.json({ name, price })
     }
