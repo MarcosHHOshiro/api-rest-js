@@ -10,6 +10,8 @@ class ProductsController {
     create(request: Request, response: Response) {
         const { name, price } = request.body
 
+        throw new Error("Erro de Exemplo")
+
         response.json({ name, price })
     }
 }
