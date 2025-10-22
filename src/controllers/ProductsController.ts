@@ -10,14 +10,12 @@ class ProductsController {
     }
 
     create(request: Request, response: Response) {
-        const { name, price } = request.body
-
         const bodySchema = z.object({
             name: z.string(),
             price: z.number(),
         })
 
-        bodySchema.parse(request.body)
+        const { name, price } = bodySchema.parse(request.body)
 
         if (!name || !price) {
             throw new AppError("Nome e preço do produto é obrigatório!", 400)
